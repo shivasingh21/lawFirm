@@ -1,0 +1,49 @@
+
+<%= form_with(model: @client, html: {class: "ui large form"}, local: true) do |form| %>
+  <h4 class = "ui dividing header">Client Information</h4>
+  <div class = "field">
+    <label><%= form.label :name, "Name" %></label>
+    <div class = "fields">
+      <div class = "twelve wide field">
+         <%= form.text_field :name, placeholder: "Name", class: "border border-success", :required => true %>
+      </div>
+    </div>
+  </div>
+  <div class = "field">
+    <span class = "font-weight-bold"><%= form.label :email, "Email"%></span>
+    <span class = "text-danger">*</span>
+    <%= form.email_field :email, placeholder: "Email", class: "border border-success", :required => true %>
+  </div>
+  <div class = "field">
+    <label> <%= form.label :address, "Address" %></label>
+    <div class = "fields">
+      <div class = "twelve wide field">
+         <%= form.text_field :address, placeholder: "Address", class: "border border-success", required: true %>
+      </div>
+    </div>
+  </div>
+  <p>Enter only 9 digits</p>
+  <div class = "field">
+    <label> <%= form.label :phone_number, "Contact Number" %></label>
+    <div class = "fields">
+      <div class = "two wide field bg-success text-right text-white p-2 ml-2">
+        +91
+      </div>
+      <div class = "ten wide field">
+        <%= form.text_field :phone_number, placeholder: "Number without 0 or +91 (eg. 89xxxxxxxx )", class: "border border-success", :required => true %>
+      </div>
+    </div>
+  </div>
+<br>
+  <div class="field">
+    <h3> <%= form.label :services, "Services" %></h3><br/>
+    <%= form.collection_check_boxes :service_ids, @services, :id, :name do |b|%>
+    <%= b.check_box(class: "check_box") %>
+    <%= b.label(class: "check_box") %>
+    <br/>
+    <% end %>
+  </div>
+
+  <%= form.submit @client.new_record? ? "SAVE" : "UPDATE", class: "ui green button m-2"%>
+
+<% end %>

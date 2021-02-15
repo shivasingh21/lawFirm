@@ -1,0 +1,17 @@
+<h1>Listing Services</h1>
+
+<table>
+  <tr>
+    <th class = "p-2">Name</th>
+    <th class = "p-2">Price</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @services.each do |service| %>
+    <tr>
+      <td class = "p-2"><%= service.name %></td>
+      <td class = "p-2"><%= service.price %></td>
+      <td class = "p-2"><%= link_to 'Destroy', service_path(service), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

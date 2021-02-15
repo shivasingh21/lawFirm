@@ -1,0 +1,24 @@
+
+<%= form_with(model: @service, html: {class: "ui large form"}, local: true) do |form| %>
+  <h4 class = "ui dividing header">Service Information</h4>
+  <div class = "field">
+    <label><%= form.label :name, "Name" %></label>
+    <div class = "fields">
+      <div class = "twelve wide field">
+         <%= form.text_field :name, placeholder: "Name", class: "border border-success", :required => true %>
+      </div>
+    </div>
+  </div>
+  <div class = "field">
+    <label> <%= form.label :price, "price" %></label>
+    <div class = "fields">
+      <div class = "twelve wide field">
+         <%= form.text_field :price, placeholder: "Price", class: "border border-success", required: true %>
+      </div>
+    </div>
+  </div>
+
+
+  <%= form.submit  "SAVE" , class: "ui green button m-2"%>
+
+<% end %>

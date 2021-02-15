@@ -1,0 +1,17 @@
+<h1 class = "text-center">HELLO, <%= @user.username %></h1>
+
+<table class = "table">
+  <tr>
+    <th scope="col">User Name</th>
+    <td scope="row"><%= @user.username %></td>
+  </tr>
+  <tr>
+    <th scope="col">Email</th>
+    <td scope="row"><%= @user.email %></td>
+  </tr>
+</table>
+
+  <div class = "ui primary button">
+    <%= link_to "Edit User Details", edit_user_path(@user) ,class: "text-white"%>
+    <i class = "right chevron icon"></i>
+  </div>
